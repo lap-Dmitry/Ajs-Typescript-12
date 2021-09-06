@@ -20,6 +20,9 @@ export default class Cart {
     }
 
     deleteItems(id:number):void {
-        this._items.filter((item) => item.id !== id);
+       const itemIndex = this._items.findIndex((item) => item.id === id);
+       if (itemIndex != -1) {
+           this._items.splice(itemIndex, 1);
+       }
     }
 }
